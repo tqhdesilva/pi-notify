@@ -1,0 +1,41 @@
+{
+  "name": "pi-notify",
+  "version": "0.1.0",
+  "description": "Pi extension for Ghostty and tmux attention notifications",
+  "type": "module",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "ghostty",
+    "tmux",
+    "notifications"
+  ],
+  "license": "MIT",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": ">=0.80.6"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "^0.80.6",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.9"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  }
+}
