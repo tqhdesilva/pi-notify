@@ -41,7 +41,7 @@ Reload tmux configuration after changing it. `allow-passthrough on` permits only
 Install this checkout as a user-level Pi package:
 
 ```sh
-pi install /Users/tdesilva/repos/pi-notify
+pi install git:github.com/tqhdesilva/pi-notify
 ```
 
 Pi records the local path in `~/.pi/agent/settings.json`. Use `/reload` in an existing Pi session or start a new session afterward.
@@ -75,15 +75,15 @@ Create `~/.pi/agent/pi-notify.json` to override built-in defaults:
 }
 ```
 
-| Setting | Values | Default | Purpose |
-|---|---|---:|---|
-| `enabled` | boolean | `true` | User-level default. A session override takes precedence. |
-| `notifyOnInput` | boolean | `true` | Notify when `ask_user_question` begins. |
-| `content` | `minimal`, `metadata`, `summary` | `summary` | Select notification body detail. |
-| `protocol` | `auto`, `osc777`, `none` | `auto` | Detect OSC 777 support, force it, or disable terminal desktop delivery. |
-| `nativeFallback` | boolean | `true` | Use `osascript` for a detached tmux session on macOS. |
-| `minDurationMs` | non-negative number | `0` | Suppress completion notifications for shorter runs. Input requests are immediate. |
-| `summaryMaxBytes` | integer 32–1024 | `160` | UTF-8 byte limit for assistant summaries. |
+| Setting           | Values                           |   Default | Purpose                                                                           |
+| ----------------- | -------------------------------- | --------: | --------------------------------------------------------------------------------- |
+| `enabled`         | boolean                          |    `true` | User-level default. A session override takes precedence.                          |
+| `notifyOnInput`   | boolean                          |    `true` | Notify when `ask_user_question` begins.                                           |
+| `content`         | `minimal`, `metadata`, `summary` | `summary` | Select notification body detail.                                                  |
+| `protocol`        | `auto`, `osc777`, `none`         |    `auto` | Detect OSC 777 support, force it, or disable terminal desktop delivery.           |
+| `nativeFallback`  | boolean                          |    `true` | Use `osascript` for a detached tmux session on macOS.                             |
+| `minDurationMs`   | non-negative number              |       `0` | Suppress completion notifications for shorter runs. Input requests are immediate. |
+| `summaryMaxBytes` | integer 32–1024                  |     `160` | UTF-8 byte limit for assistant summaries.                                         |
 
 Set `PI_NOTIFY_PROTOCOL=osc777` to force OSC 777 for an environment not detected as Ghostty or WezTerm. `none` disables OSC output but does not disable the configured detached macOS fallback.
 
